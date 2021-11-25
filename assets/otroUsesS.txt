@@ -1,0 +1,9 @@
+Assets ---> Nuevo archivo
+   otroUsesS.txt
+   const longPress = ({ nativeEvent }) => {
+     setPuntos(oldPuntos => [...oldPuntos, {
+       coordinate: nativeEvent.coordinate
+     }]);
+   }
+
+Aldo

@@ -1,20 +1,27 @@
 import React from 'rect';
-import {dimensions, StyleSheet } from 'rezct-native';
-import MapView from 'react-native-maps';
+import {Dimensions, StyleSheet } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
-export default () => {
+export default ({longPress, puntos, verPuntos}) => {
     return (        
-        <MapView style = {StyleSheet.mapa} />        
+        <MapView
+            style = {Styles.mapa}
+            onLongPress={longPress}
+        >
+            {verPuntos && puntos.map( x =>
+                <Marker
+                    key = {x.name}
+                    coordinate = {x.coordinate}
+                    title = {x.name}
+                />
+            )}
+        </MapView>
     )
 }
 
 const styles = StyleSheet.create ({
     mapa: {
-        height: dimensions.get('window').heigt-50,
-        width: dimensions.get('window').width,
+        height: Dimensions.get('window').height-50,
+        width: Dimensions.get('window').width,
     },
 });
-
-//export {default as Mapa } from './Mapa';
-//export {default as Modals } from './Modals';
-//export {default as Panel } from './Pa
